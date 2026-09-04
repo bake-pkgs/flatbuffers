@@ -1,0 +1,10 @@
+[package]
+name = "flatbuffers"
+version = "25.2.10"
+type = "lib"
+
+[language]
+cxx = "c++17"
+
+[dependencies]
+upstream = { url = "https://github.com/google/flatbuffers/archive/refs/tags/v25.2.10.tar.gz" }
