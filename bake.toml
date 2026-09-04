@@ -8,3 +8,9 @@ cxx = "c++17"
 
 [dependencies]
 upstream = { url = "https://github.com/google/flatbuffers/archive/refs/tags/v25.2.10.tar.gz" }
+
+# musl implements _XOPEN_VERSION >= 700 but does not provide the strtoll_l /
+# strtoull_l family; fall back to the plain locale-dependent conversions.
+# Public: consumer TUs including flatbuffers headers must agree.
+[target."*-linux-musl"]
+public_defines = ["FLATBUFFERS_LOCALE_INDEPENDENT=0"]
